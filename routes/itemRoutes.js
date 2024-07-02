@@ -1,0 +1,15 @@
+// const express = require("express");
+// const router = express.Router();
+// const ItemController = require("../controllers/itemController");
+// const authMiddleware = require("../middlewares/authMiddleware");
+import express from "express";
+const router = express.Router();
+// import ItemController from "../controllers/itemController.js";
+import { createItem, deleteItem, getItemById, getItems, updateItem } from "../controllers/itemController.js";
+import authMiddleware from "../middleware/auth.js";
+router.post("/items", authMiddleware, createItem);
+router.get("/items", authMiddleware, getItems);
+router.get("/items/:id", authMiddleware, getItemById);
+router.put("/items/:id", authMiddleware, updateItem);
+router.delete("/items/:id", authMiddleware, deleteItem);
+export default router;
