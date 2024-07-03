@@ -16,7 +16,18 @@ const ItemSchema = new mongoose.Schema({
   secondaryUnit: { type: String },
   conversionFactor: { type: Number },
   batch: { type: mongoose.Schema.Types.ObjectId, ref: "Batch" },
+  barcode: { type: Number },
   attributes: { type: [AttributeSchema], default: [] },
+  createdBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+  updatedBy: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
+  mrp: { type: Number },
+  rsp: { type: Number },
+  purchasePrice: { type: Number },
+  rate : {type: [Number], default: []},
+  
+
 });
 
 // module.exports = mongoose.model("Item", ItemSchema);
